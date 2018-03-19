@@ -1,0 +1,57 @@
+\section{Opis razvojnog okruženja za dubinsku analizu}
+\label{ch:ch2}
+
+\subsection{Skup podataka za dubinsku analizu}
+
+Skup podataka nad kojim je napravljena dubinska analiza potječe iz banke genoma
+(Genbank 61.1) i može se preuzeti sa repozitorija za strojno učenje UCI\footnote
+{\url{https://archive.ics.uci.edu/ml/datasets/Molecular+Biology+(Splice-junction+Gene+Sequences)}}
+u komprimiranoj datoteci. Skup sadrži 3190 instanci sa 63 atributa.
+Prvi atribut u tablici je klasa. Podaci pripadaju jednoj od tri kategorije:
+\begin{itemize}
+   \item "IE" - slijed u genomu koji se nalazi na granici intron egzon
+   \item "EI" - slijed u genomu koji se nalazi na granici egzon intron
+   \item "N" - slijed u genomu za koji je poznato da ne sadrži granicu između egzona i introna
+\end{itemize}
+Drugi atribut je tekstualni identifikator instance.
+Preostali atributi su zapravo sekvenca šezdeset slova koje označavaju nukleotide
+sekvence u DNK molekuli za koju želimo utvrditi kojoj klasi pripada. U ovom radu se na pozicije pojedinačnih nukleotidnih baza (slova) referiramo pozitivnim indeksima {1, 2, ..., 60}.
+Nukleotidi u skupu podataka su označeni na način prikazan Tablicom \ref{tab:oznake}.
+
+\begin{table}[!ht]
+   \caption[Oznake nukleotida u skupu podataka za dubinsku analizu]{
+   \textbf{Oznake nukleotida u skupu podataka za dubinsku analizu.} \textit{A, G, C i T se koriste ako se na
+   toj lokaciji pojavljuje isključivo jedna od četiri baze. Ukoliko se na istom indeksu u sekvenci
+   pojavljuju različite baze, uz sve ostale pozicije s jednakim nukleotidima koristimo oznake D, N, S i R.}}
+   \centering
+   \begin{tabular}{||c | c ||}
+   \hline
+   Oznaka atributa & Nukleotid \\ [0.5ex]
+   \hline\hline
+   A & Adenin \\
+   T & Timin \\ 
+   G & Guanin \\ 
+   C & Citozin \\
+   D & Adenin ili Guanin ili Timin \\
+   N & Adenin ili Guanin ili Citozin ili Timin \\
+   S & Citozin ili Guanin \\
+   R & Adenin ili Guanin \\ [1ex]
+   \hline
+   \end{tabular}
+   \label{tab:oznake}
+\end{table}
+
+\subsection{Programski alati za dubinsku analizu}
+Za obradu i preprocesiranje skupa podataka korišten je programski jezik \textit{Python} (verzija 3.5)
+u kombinaciji sa bibliotekama \textit{pandas}, \textit{sklearn} te \textit{matplotlib} i \textit{seaborn} za grafički prikaz rezultata.
+\textit{pandas} je biblioteka otvorenog koda koja implementira brze i fleksibilne strukture podataka kako bi se korisniku omogućilo što lakše i intuitivnije upravljanje podacima\cite{McKinney01}. Ova biblioteka omogućuje korištenje različitih tipova podataka
+\begin{itemize}
+   \item Tabularni podaci sa stupcima heterogenog tipa (kao u SQL ili Excel tablicama)
+   \item Uređeni i neuređeni skupovi vremenskih podataka
+   \item Proizvoljni podaci u matričnom obliku s oznakama redova i stupaca
+   \item Bilo kakav drugi oblik statističkih skupova podataka koji ne mora nužno biti označen
+\end{itemize}
+
+\textit{scikit-learn} je biblioteka otvorenog koda i sadrži skup algoritama za strojno učenje i dubinsku analizu podataka\cite{Pedregosa01}. Obuhvaća širok spektar funkcionalnosti, od preprocesiranja podataka preko učenja različitih modela do evaluacije dobivenih rezultata.
+Skripta za obradu podataka napisana je u razvojnom okruženju \textit{Jupyter Notebook} i dostupna je u \textit{GitHub}\footnote{\url{https://github.com/m5imunovic/CourseWork/tree/main/KDISC}} repozitoriju. Dubinska analiza provedena je korištenjem programskog alata Weka\cite{Weka01}.
+

@@ -1,0 +1,16 @@
+Upute za modifikaciju scikit-learn paketa
+
+Preduvjeti za nastavak su instalirana podrška za Python (minimalno verzija 3.5) i git alati.
+sudo apt install python3 git virtualenv
+
+cd ~
+mkdir kdisc/ && cd kdisc/
+git clone https://github.com/scikit-learn/scikit-learn
+python3 -m virtualenv env
+source env/bin/activate
+pip3 install cython
+#Implementirati promjene sa linka https://github.com/scikit-learn/scikit-learn/pull/4899
+pip3 install --upgrade --user /home/$USER/kdisc/scikit-learn
+
+
+

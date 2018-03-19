@@ -1,0 +1,13 @@
+ch1.aux
+ch2.aux
+ch3.aux
+conc.aux
+intro.aux
+main.aux
+main.bbl
+main.blg
+main.lof
+main.log
+main.lot
+main.pdf
+main.toc

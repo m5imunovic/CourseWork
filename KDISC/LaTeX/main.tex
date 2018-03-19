@@ -1,0 +1,147 @@
+% This is the main file for the template for the coursework during
+% PhD studies at the University of Zagreb, Faculty of Electrical Engineering
+% and Computing in Zagreb, Croatia
+% Initial version: February 2018
+
+% Author: Marijo Simunovic 
+
+% search apt-cache search name.sty
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,oneside, a4paper]{article}
+\usepackage[pdftex]{graphicx}
+\graphicspath{ {images/} } %place all images here
+\usepackage[bf, font=small]{caption} %image caption settings
+\usepackage[labelfont=small, font=small]{subcaption}
+\usepackage{csvsimple} % requires texlive-latex-extra
+\usepackage[toc,page]{appendix}
+
+\usepackage{amsmath}
+\numberwithin{equation}{section}
+\usepackage{relsize}
+\usepackage[hidelinks]{hyperref} %clickable references without borders
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[croatian]{babel} % requires texlive-lang-european package
+\usepackage{color}
+
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{lmodern} % allows arbitrary font size
+\linespread{1.3} % this is one-and-a-half spacing
+%paragraph settings 
+%\setlength{\parskip}{1em}
+\setlength{\parindent}{2em}
+
+\usepackage[square, numbers, sort]{natbib} 
+% change the name of Bibliography heading into "Literatura"
+\addto\captionscroatian{%
+  \renewcommand{\bibname}{Literatura}
+}
+\addto\captionscroatian{%
+  \renewcommand{\appendixname}{Dodatak}
+}
+%\usepackage{titlesec} %chapter name manipulation
+%% remove chapter name and number
+%\titleformat{\chapter}[display]
+%   {\normalfont\bfseries}{}{0pt}{\Huge}
+%
+
+%narrow underscore
+\renewcommand{\_}{\textscale{.7}{\textunderscore}}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fancyvrb}
+% redefine \VerbatimInput
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
+{fontsize=\footnotesize,
+%
+frame=lines,  % top and bottom rule only
+framesep=2em, % separation between frame and text
+rulecolor=\color{Gray},
+%
+label=\fbox{\color{Black}data.txt},
+labelposition=topline,
+%
+commandchars=\|\(\), % escape character and argument delimiters for
+                       % commands within the verbatim
+commentchar=*        % comment character
+}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%% PRVA UNUTARNJA STRANICA / FIRST INNER PAGE %%%%%%%%%%%%%%%%
+\begin{titlepage}
+  \fontsize{16pt}{20pt}\selectfont
+  \fontfamily{phv}\fontseries{mc}\selectfont
+  \newgeometry{left=3cm,right=3cm,top=3cm,bottom=2.5cm}
+  \setlength{\intextsep}{0pt plus 0pt minus 0pt}
+
+  \begin{center}
+    \begin{figure}[ht!]
+      \begin{center}
+        \includegraphics[height=4.1184cm, width=5.94cm]{logo_unizg2}
+      \end{center}
+    \end{figure}		
+    \vspace{0cm}
+    {FAKULTET ELEKTROTEHNIKE I RAČUNARSTVA} \\
+    \vspace{3cm}
+    Marijo Šimunović \\
+    \vspace{2cm}
+    {\fontsize{22pt}{22pt}\selectfont\textbf{Detekcija intronskih i egzonskih sekvenci u molekuli DNK upotrebom stabala odlučivanja}} \\
+    \vspace{2cm}    
+    SEMINARSKI RAD \\
+    \vspace{5cm}    % adjust this spacing if necessary
+    \vfill{Zagreb, 2018.}
+  \end{center}
+  \restoregeometry
+\end{titlepage}
+
+\tableofcontents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\listoffigures
+\clearpage % start new page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LOT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% insert optional list of tables
+\listoftables
+%\section{Abstrakt}
+%Ako treba sazetak
+
+\clearpage
+\include{intro}
+
+\clearpage
+\include{ch1}
+
+\clearpage
+\include{ch2}
+
+\clearpage
+\include{ch3}
+
+\clearpage
+\include{ch4}
+
+\clearpage
+\include{ch5}
+
+\clearpage
+\include{conc}
+
+\clearpage
+\include{appA}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAPHY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bibliography style file is modified IEEEtran.bst file,
+% changed to suit FER's literature style
+\clearpage % start new page
+\addcontentsline{toc}{section}{Literatura}
+\bibliographystyle{IEEEtranFER} 
+\bibliography{eg_biblio}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INDEX %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% optional index
+%\printindex
+
+\end{document}

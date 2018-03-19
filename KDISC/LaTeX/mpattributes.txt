@@ -1,0 +1,44 @@
+=== Run information ===
+
+Evaluator:    weka.attributeSelection.ClassifierSubsetEval -B 
+              weka.classifiers.functions.MultilayerPerceptron -T -H 
+              "Click to set hold out or test instances" -E DEFAULT --
+              -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+Search:       weka.attributeSelection.GreedyStepwise -T -1.7976931348623157E308 
+              -N -1 -num-slots 1
+Relation:     splice_train-weka.filters.unsupervised.attribute.
+              SortLabels-Rfirst-last-SNON-CASE
+Instances:    2539
+Attributes:   61
+Evaluation mode:    evaluate on all training data
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Greedy Stepwise (forwards).
+	Start set: no attributes
+	Merit of best subset found:    0.998
+
+Attribute Subset Evaluator (supervised, Class (nominal): 1 class):
+	Classifier Subset Evaluator
+	Learning scheme: weka.classifiers.functions.MultilayerPerceptron
+	Scheme options: -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a 
+	Hold out/test set: Training data
+	Subset evaluation: classification error
+
+Selected attributes: 6,12,22,29,30,31,32,33,34,36,39,45,49 : 13
+                     dna_5
+                     dna_11
+                     dna_21
+                     dna_28
+                     dna_29
+                     dna_30
+                     dna_31
+                     dna_32
+                     dna_33
+                     dna_35
+                     dna_38
+                     dna_44
+                     dna_48
+
